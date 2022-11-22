@@ -163,7 +163,7 @@ if choice == 'Sign up':
         user = auth.sign_in_with_email_and_password(email, password)
         db.child(user['localId']).child("Handle").set(handle)
         db.child(user['localId']).child("ID").set(user['localId'])
-        st.title('Welcome' + handle)
+        st.title('Welcome ' + handle)
         st.info('Login via login drop down selection')
 
 # Login Block
@@ -173,7 +173,7 @@ if choice == 'Login':
         user = auth.sign_in_with_email_and_password(email, password)
         st.write(
             '<style>div.row-widget.stRadio > div{flex-direction:row;background-color: grey;text-transform: uppercase;}</style>', unsafe_allow_html=True)
-        bio = st.radio("Welcome to Comicmage",['Home', 'ImageCartoon', 'EditImage', 'Webcam', 'Comicmage Feeds', 'Settings'])
+        bio = st.radio("Welcome to Comicmage",['Home', 'ImageCartoon', 'Filter Image', 'Webcam', 'Comicmage Feeds', 'Settings'])
         
 
 # SETTINGS PAGE
@@ -259,7 +259,7 @@ if choice == 'Login':
 
 # EditImage
 
-        elif bio == 'EditImage':
+        elif bio == 'Filter Image':
             file = st.file_uploader("Please upload an image file", type=["jpeg", "png"])
             if file is None:
                 st.text("You haven't uploaded an image file")
@@ -270,10 +270,10 @@ if choice == 'Login':
                 cartoon = cartoonization(img, option)
                 col1,col2 =st.columns(2)
                 with col1:
-                    st.text("Your original image")
+                    st.text("Your Original image")
                     st.image(image, use_column_width=True)
                 with col2:
-                    st.text("Your cartoonized image")
+                    st.text("Your Filtered image")
                     st.image(cartoon, use_column_width=True)
                     
                     
@@ -321,8 +321,8 @@ if choice == 'Login':
                 imgname=st.text_input("Enter file name")
         
                 im = Image.fromarray(cartoon)
-                
-                with open("Edge.png", "rb") as file:
+                im.save("Edge1.png")
+                with open("Edge1.png", "rb") as file:
                     btn = st.download_button(
                         label="Download Image",
                         data=file,
