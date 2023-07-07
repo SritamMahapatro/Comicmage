@@ -2,7 +2,7 @@ pyrebase
 pyrebase4
 streamlit
 datetime 
-PIL
+pillow
 numpy
 opencv-python
 io 
