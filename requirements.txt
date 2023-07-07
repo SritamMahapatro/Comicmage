@@ -5,7 +5,6 @@ datetime
 pillow
 numpy
 opencv-python
-io 
 base64
 streamlit_option_menuos
 streamlit_cropper
