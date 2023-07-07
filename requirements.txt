@@ -3,7 +3,7 @@ pyrebase4
 streamlit
 datetime 
 PIL
-numpy as np
+numpy
 opencv-python
 io 
 base64
